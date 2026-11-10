@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#10121b" />
+  <link rel="icon" href="icon.svg" type="image/svg+xml" />
+  <title>GAGGED — A silent comedy heist</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Gagged home"><span class="brand-mark">G!</span><span>GAGGED</span></a>
+      <div class="top-note"><span class="live-dot"></span> THE MUSEUM OF MODERN NONSENSE</div>
+      <button class="sound-toggle" id="soundToggle" aria-label="Toggle sound" title="Toggle sound">♪ <span>Sound off</span></button>
+    </header>
+
+    <section class="game-wrap" aria-label="Game">
+      <div class="game-frame">
+        <canvas id="game" width="960" height="600" aria-label="Sneak through the museum, collect three joke cards, and reach the exit"></canvas>
+        <div class="hud" id="hud" hidden>
+          <div class="hud-left">
+            <div class="hud-chip"><span class="hud-icon">✦</span><span id="collectCount">0 / 3</span><small>GAGS</small></div>
+            <div class="alert-wrap"><div class="alert-label"><span>ATTENTION</span><span id="alertText">CLEAR</span></div><div class="alert-track"><i id="alertBar"></i></div></div>
+          </div>
+          <div class="hud-right">
+            <div class="decoy-count" aria-label="Joke pages remaining"><span class="paper-icon">▤</span><b id="decoys">2</b><small>DECOYS</small></div>
+            <button class="icon-button" id="pauseButton" aria-label="Pause game">Ⅱ</button>
+          </div>
+        </div>
+        <div class="screen" id="menuScreen">
+          <div class="menu-card">
+            <div class="eyebrow"><span></span> A SILENT COMEDY HEIST <span></span></div>
+            <h1>GAGGED<span>!</span></h1>
+            <p class="lead">The world's quietest break-in.</p>
+            <p class="intro">Slip past the sound-sensitive security, swipe the museum's forbidden punchlines, and make your grand escape. Not a peep.</p>
+            <div class="menu-actions"><button class="primary-button" id="playButton">START THE SHOW <span>→</span></button><span class="best-score" id="bestScore">BEST: —</span></div>
+            <div class="menu-hint"><span class="keycap">WASD</span> MOVE <span class="hint-sep">·</span> <span class="keycap">SPACE</span> TIPTOE <span class="hint-sep">·</span> <span class="keycap">E</span> DISTRACT</div>
+          </div>
+          <div class="menu-sticker sticker-left">SHHH!<span>✦</span></div>
+          <div class="menu-sticker sticker-right"><span>100%</span> SILENT<br>COMEDY</div>
+        </div>
+        <div class="screen modal-screen" id="pauseScreen" hidden>
+          <div class="modal-card"><div class="modal-icon">Ⅱ</div><div class="eyebrow">HOLD THAT THOUGHT</div><h2>PAUSED</h2><p>The audience is waiting...</p><button class="primary-button" id="resumeButton">BACK TO THE HEIST <span>→</span></button><button class="text-button" id="restartPause">RESTART FROM THE TOP</button></div>
+        </div>
+        <div class="screen modal-screen" id="endScreen" hidden>
+          <div class="modal-card"><div class="modal-icon" id="endIcon">✦</div><div class="eyebrow" id="endEyebrow">A PERFECT EXIT</div><h2 id="endTitle">ENCORE!</h2><p id="endMessage">You stole the punchlines and left without a sound.</p><div class="result-line"><span>GAGS COLLECTED</span><b id="finalCount">3 / 3</b></div><button class="primary-button" id="againButton">PLAY AGAIN <span>↻</span></button></div>
+        </div>
+      </div>
+      <div class="below-bar"><div class="objective"><span class="objective-icon">◎</span><span id="objectiveText">COLLECT ALL 3 GAG CARDS, THEN FIND THE EXIT</span></div><div class="controls-note"><span class="desktop-controls">MOVE <b>W A S D</b> <i>·</i> TIPTOE <b>SPACE</b> <i>·</i> DISTRACT <b>E</b></span><span class="mobile-controls">TOUCH CONTROLS BELOW</span></div></div>
+    </section>
+
+    <section class="mobile-pad" aria-label="Touch controls">
+      <div class="dpad"><button data-dir="up" aria-label="Move up">▲</button><button data-dir="left" aria-label="Move left">◀</button><button data-dir="down" aria-label="Move down">▼</button><button data-dir="right" aria-label="Move right">▶</button></div>
+      <div class="touch-actions"><button id="tiptoeButton"><span>◌</span> TIPTOE</button><button id="decoyButton"><span>✦</span> DECOY <b id="touchDecoys">2</b></button></div>
+    </section>
+
+    <footer><span>NO TALKING. NO RUNNING. DEFINITELY NO EXPLAINING THE JOKE.</span><span>© MUSEUM OF MODERN NONSENSE</span></footer>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
